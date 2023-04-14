@@ -1,0 +1,25 @@
+contents:
+  repositories:
+    - https://mirrors.aliyun.com/alpine/edge/main
+    - /work/packages
+  packages:
+    - alpine-base
+    - curl
+    - tree 
+    - tzdata
+    - hello
+
+entrypoint:
+  command: /bin/sh -l
+ 
+paths:
+  - path: /etc/localtime
+    type: symlink
+    source: /usr/share/zoneinfo/Asia/Shanghai
+
+# optional environment configuration
+environment:
+  PATH: /usr/sbin:/sbin:/usr/bin:/bin
+
+archs:
+ - amd64
